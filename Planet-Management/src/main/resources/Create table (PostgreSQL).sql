@@ -1,0 +1,11 @@
+CREATE TABLE Overlord(
+  Overlord_ID BIGINT PRIMARY KEY,
+  Name NCHAR(20) NOT NULL,
+  Age INT NOT NULL,
+  CHECK(Age >0 AND Age < 1000)
+);
+
+CREATE TABLE Planet(
+  Title NCHAR(50) PRIMARY KEY,
+  Fk_Overlord_ID INT REFERENCES Overlord(Overlord_ID) ON DELETE SET NULL
+);

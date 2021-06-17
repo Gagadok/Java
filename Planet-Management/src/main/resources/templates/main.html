@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head> 
+        <title>Getting Started: Serving Web Content</title> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <div>
+            <form method="POST">
+                <input type="text" name="overlord_name" placeholder="Введите имя Повелителя">
+                <input type="text" name="overlord_age" placeholder="Введите возраст Повелителя">
+                <button type="submit">Добавить</button>
+            </form>
+        </div>
+        
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th> ID </th>
+                        <th> Имя повелителя </th>
+                        <th> Возраст повелителя </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${overlords.empty}">
+                        <td colspan="2"> Повелители не найдены </td>
+                    </tr>
+                    <tr th:each="overlord : ${overlords}">
+                        <td><span th:text="${overlord.Overlord_ID}"> Имя повелителя </span></td>
+                        <td><span th:text="${overlord.Name}"> Имя повелителя </span></td>
+                        <td><span th:text="${overlord.Age}"> Возраст повелителя </span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
